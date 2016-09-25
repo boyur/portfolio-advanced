@@ -1,7 +1,7 @@
 # portfolio-advanced
 The first graduation project LoftSchool Web Advanced
 
-Author: Боюр Артем Владимирович
+Author: Боюр Артем Владимирович<br>
 link: http://new.boyur.net/
 
 **install Gulp 4.0:**<br>
