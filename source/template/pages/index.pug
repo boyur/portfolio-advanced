@@ -4,4 +4,8 @@ block variables
   - var title = 'Артем Боюр'
 
 block content
-  include ../common/_welcome
+  .wrapper-start
+    include ../common/_authorization
+    //include ../common/_welcome
+
+  a(href='#').auth-btn Авторизоваться

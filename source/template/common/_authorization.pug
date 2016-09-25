@@ -1,0 +1,25 @@
+.start
+  .authorization__title.
+    Авторизуйтесь
+  .authorization__login
+    .login__icon
+      i(class="fa fa-user" aria-hidden="true")
+    input(type="text").login__input
+  .authorization__pass
+    .pass__icon
+      i(class="fa fa-key" aria-hidden="true")
+    input(type="password").pass__input
+
+  input(type="checkbox").authorization__check
+  | Я человек
+  .authorization__radio-text Вы точно не робот?
+
+  input(type="radio" name="robot" value="yes").authorization__radio
+  | Да
+  input(type="radio" name="robot" value="no").authorization__radio
+  | Не уверен
+
+
+  .start__btns
+    a(href='#').start__btn.start__btn--auth На главную
+    a(href='#').start__btn.start__btn--auth Войти

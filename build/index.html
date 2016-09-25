@@ -15,14 +15,24 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
   </head>
   <body>
-    <div class="wrapper-welcome">
-      <div class="welcome-block">
-        <div class="welcome-block__avatar"></div>
-        <div class="welcome-block__title">Артем Боюр</div>
-        <div class="welcome-block__text">Личный сайт веб разработчика</div>
-        <div class="welcome-block__social"><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></div>
-        <div class="welcome-block__btns"><a class="welcome-block__btn" href="#">Мои работы</a><a class="welcome-block__btn" href="#">Обо мне</a><a class="welcome-block__btn" href="#">Блог</a></div>
+    <div class="wrapper-start">
+      <div class="start">
+        <div class="authorization__title">Авторизуйтесь</div>
+        <div class="authorization__login">
+          <div class="login__icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+          <input class="login__input" type="text">
+        </div>
+        <div class="authorization__pass">
+          <div class="pass__icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+          <input class="pass__input" type="password">
+        </div>
+        <input class="authorization__check" type="checkbox">Я человек
+        <div class="authorization__radio-text">Вы точно не робот?</div>
+        <input class="authorization__radio" type="radio" name="robot" value="yes">Да
+        <input class="authorization__radio" type="radio" name="robot" value="no">Не уверен
+        <div class="start__btns"><a class="start__btn start__btn--auth" href="#">На главную</a><a class="start__btn start__btn--auth" href="#">Войти</a></div>
       </div>
+      <!--include ../common/_welcome-->
     </div><a class="auth-btn" href="#">Авторизоваться</a>
   </body>
 </html>
