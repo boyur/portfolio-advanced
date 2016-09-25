@@ -10,4 +10,9 @@ module.exports = function() {
     return $.gulp.src('./source/images/sprite/img/*.png', { since: $.gulp.lastRun('copy:sprite') })
       .pipe($.gulp.dest($.config.root + '/assets/img/sprite'));
   });
+
+  $.gulp.task('copy:fonts', function() {
+    return $.gulp.src('./source/fonts/**/*.*', { since: $.gulp.lastRun('copy:fonts') })
+      .pipe($.gulp.dest($.config.root + '/assets/fonts'));
+  });
 };
