@@ -1,7 +1,3 @@
-
-.idea/jsLibraryMappings.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/portfolio-advanced.iml
-.idea/workspace.xml
+.idea/
+build/
 node_modules/
