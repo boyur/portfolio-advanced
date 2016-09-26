@@ -10,8 +10,10 @@
       i(class="fa fa-key" aria-hidden="true")
     input(type="password").pass__input
 
-  input(type="checkbox").authorization__check
-  | Я человек
+  .checkbox
+    input(id="check1" type="checkbox" name="check" value="check1")
+    label(for="check1") Я человек
+
   .authorization__radio-text Вы точно не робот?
 
   input(type="radio" name="robot" value="yes").authorization__radio
