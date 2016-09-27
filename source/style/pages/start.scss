@@ -25,10 +25,10 @@
   width: 380px;
   background-color: rgba(252, 252, 252, 0.85);
   border-radius: 5px;
-  padding-top: 40px;
+  padding-top: 30px;
   text-align: center;
   overflow: hidden;
-  padding-bottom: 50px;
+  padding-bottom: 85px;
 }
 
 .auth-btn {
@@ -83,6 +83,11 @@
   height: 45px;
   background: #00bfa5;
   bottom: 0;
+}
+
+
+.start__btn--auth {
+  width: 50%;
 }
 
 @import './common/welcome';

@@ -14,12 +14,12 @@
     input(id="check1" type="checkbox" name="check" value="check1")
     label(for="check1") Я человек
 
-  .authorization__radio-text Вы точно не робот?
-
-  input(type="radio" name="robot" value="yes").authorization__radio
-  | Да
-  input(type="radio" name="robot" value="no").authorization__radio
-  | Не уверен
+  .radio-text Вы точно не робот?
+  .radio
+    input(id="radio1" type="radio" name="radio" value="yes")
+    label(for="radio1") Да
+    input(id="radio2" type="radio" name="radio" value="no")
+    label(for="radio2") Не уверен
 
 
   .start__btns
