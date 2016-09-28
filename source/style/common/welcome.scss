@@ -1,3 +1,8 @@
+.welcome {
+  transition: 0.5s;
+  transform: scaleX(1);
+}
+
 .welcome__avatar {
   display: inline-block;
   height: 140px;

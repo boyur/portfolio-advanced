@@ -12,4 +12,16 @@ module.exports = function() {
        }))
       .pipe($.gulp.dest($.config.root));
   });
+
+    $.gulp.task('pug:common', function() {
+        return $.gulp.src('./source/template/common/*.pug')
+            .pipe($.gp.pug({ pretty: true }))
+            .on('error', $.gp.notify.onError(function(error) {
+                return {
+                    title: 'Pug',
+                    message:  error.message
+                }
+            }))
+            .pipe($.gulp.dest($.config.root + '/common'));
+    });
 };
