@@ -1,0 +1,101 @@
+extends ../_template
+
+block variables
+    - var title = 'Мои работы'
+
+block content
+    .wrapper
+        header.header
+            .header__top
+                .social.social--header
+                    a(href='#')
+                        i(class="fa fa-vk" aria-hidden="true")
+                    a(href='#')
+                        i(class="fa fa-github-alt" aria-hidden="true")
+                    a(href='#')
+                        i(class="fa fa-linkedin-square" aria-hidden="true")
+                .header__menu
+                    include ../../icons/hamburger.svg
+
+            .header__main
+                .header__title
+                    .title-dashes__bg
+                        include ../../icons/portfolio_header.svg
+                    .user__info.title--bg
+                        .user__avatar
+                            img.user__avatar-img(src="assets/img/welcome/avatar.jpg")
+                        .user__title Артем Боюр
+                        .user__text Личный сайт веб разработчика
+
+            .header__triangle
+                .header__triangle-svg
+                    include ../../images/triangle.svg
+                .big__title.big__title--color
+                    .title-dashes__bg
+                        include ../../icons/works_header.svg
+                    .title-dashes.title--bg Мои работы
+                .arrow-down-little
+                    include ../../icons/arrow_down.svg
+
+
+        .slider
+            .slider__content
+                .slider__content-main
+                    .title-medium.title-dashes.title-dashes--double Сайт школы онлайн Образования
+                    .slider__content-technologies HTML , CSS, JAVASCRIPT
+                    a(href='#')
+                        button.btn-website
+                            i(class="fa fa-link" aria-hidden="true")
+                            | Посмотреть сайт
+
+            .slider__img
+                .slider__img-top
+                    img(src="assets/img/works/work-1.png")
+                .slider__img-left
+                    img(src="assets/img/works/work-2.png")
+                .slider__img-right
+                    img(src="assets/img/works/work-3.png")
+
+        .about
+            .big__title
+                .title-dashes__bg
+                    include ../../icons/about_header.svg
+                .title-dashes.title--bg.title-dashes--double Что обо мне говорят
+
+            .about__comment
+                .about__comment-block
+                    .about__comment-text.
+                        Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний!
+                    .about__comment-author
+                        .user__avatar.user__avatar--comment
+                            img.user__avatar-img(src="assets/img/welcome/avatar.jpg")
+                        .about__comment-name
+                            .about__comment-fio Ковальчук Дмитрий
+                                .about__comment-description основатель Loftschool
+
+                .about__comment-block
+                    .about__comment-text.
+                        Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                    .about__comment-author
+                        .user__avatar.user__avatar--comment
+                            img.user__avatar-img(src="assets/img/welcome/avatar.jpg")
+                        .about__comment-name
+                            .about__comment-fio Зар Захаров
+                            .about__comment-description преподаватель
+
+            .about__contact
+                .title-medium.title-dashes Связаться со мной
+                form
+                    input(type="text").contact-input
+                    input(type="text").contact-input
+                    textarea(rows="4").contact-input
+                .start__btns
+                    a(href='#').start__btn Отправить
+                    a(href='#').start__btn Очистить
+        .footer
+            .footer__top
+                .footer__top-left
+                .footer__top-right
+            .footer__buttom
+                .footer__buttom-left
+                .footer__buttom-right

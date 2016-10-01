@@ -3,33 +3,7 @@
   transform: scaleX(1);
 }
 
-.welcome__avatar {
-  display: inline-block;
-  height: 140px;
-  width: 140px;
-  text-align: center;
-  border-radius: 50%;
-  overflow: hidden;
-  background-image: url("../img/welcome/avatar.jpg");
-  background-size: cover;
-  margin: 10px;
-}
-
-.welcome__title {
-  font-family: robotomedium, serif;
-  font-size: 28px;
-  line-height: 1.2;
-  color: #455a64;
-}
-
-.welcome__text {
-  font-family: robotoregular, serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: rgba(69, 90, 100, 0.8);
-}
-
-.welcome__social {
+.welcome__social, .social {
   padding: 30px 0 0;
   font-family: fontawesomeregular, serif;
   font-size: 28px;
@@ -43,6 +17,25 @@
 
     &:visited {
       color: #00bfa5;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.social--header {
+  max-width: 50%;
+  float: left;
+  margin-left: 15px;
+
+  a {
+    color: #fff;
+    opacity: 0.5;
+
+    &:active {
+      color: #fff;
     }
 
     &:hover {

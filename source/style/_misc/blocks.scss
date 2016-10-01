@@ -1,0 +1,109 @@
+// User info
+.user__avatar {
+  display: inline-block;
+  height: 140px;
+  width: 140px;
+  text-align: center;
+  border-radius: 50%;
+  overflow: hidden;
+  //background-image: url("../img/welcome/avatar.jpg");
+  //background-size: cover;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.user__avatar-img {
+  height: 100%;
+  width: 100%;
+}
+
+.user__avatar--comment {
+  width: 77px;
+  height: 77px;
+}
+
+.user__title {
+  font-family: robotomedium, serif;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.user__text {
+  font-family: robotoregular, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.user__title--black {
+  color: #455a64;
+}
+
+.user__text--black {
+  color: rgba(69, 90, 100, 0.8);
+}
+
+.big__title {
+  position: relative;
+  //background: #faf8f0;
+  font-size: 63px;
+  font-family: bernier_regularregular, serif;
+  line-height: 1;
+  color: #455a64;
+}
+
+.big__title--color {
+  background: #faf8f0;
+}
+
+.title-medium {
+  display: inline-block;
+  position: relative;
+  font-family: bernier_regularregular, serif;
+  font-size: 35px;
+  line-height: 1.2;
+  text-align: center;
+  color: #455a64;
+}
+
+.title-dashes {
+
+  &:after, &:before {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 5px;
+    opacity: 0.2;
+    background-color: #373e42;
+    top: 0.5em;
+  }
+
+  &:after {
+    right: -35px;
+  }
+
+  &:before {
+    left: -40px;
+  }
+}
+
+.title-dashes__bg {
+  display: inline-block;
+  position: relative;
+  opacity: 0.07;
+  transform: scale(1);
+}
+
+.title--bg {
+  display: table;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.title-dashes--double {
+  width: 300px;
+}
