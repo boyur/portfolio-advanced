@@ -57,3 +57,15 @@ window.onload = function () {
 
   })();
 }();
+
+// scroll
+(function () {
+  $('a[href^="#"]').on('click', function () {
+    var element = $(this).attr('href');
+    $('body').animate({
+        scrollTop: $(element).offset().top
+      }, 1000
+    );
+    return false;
+  });
+})();
