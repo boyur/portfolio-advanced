@@ -8,6 +8,8 @@
   text-align: center;
   background-image: url("../img/welcome/bg.jpg");
   background-size: cover;
+  padding-bottom: 100px;
+  min-height: 500px;
 
   &:after {
     content: "";
@@ -45,9 +47,11 @@
   border-radius: 5px;
 
   text-decoration: none;
+  transition: color 0.5s, background 0.5s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 1);
+    color: #00bfa5;
   }
 }
 
@@ -88,6 +92,16 @@
 
 .start__btn--auth {
   width: 50%;
+}
+
+.footer-start {
+  font-family: robotolight, serif;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
 }
 
 @import './common/welcome';

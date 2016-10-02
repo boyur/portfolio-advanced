@@ -97,6 +97,13 @@
   }
 }
 
+.title-dashes--white {
+
+  &:after, &:before {
+    background-color: #fff;
+  }
+}
+
 .title-dashes__bg {
   display: inline-block;
   position: relative;

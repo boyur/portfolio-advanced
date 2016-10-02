@@ -4,16 +4,7 @@
   transform: scaleX(0);
 }
 
-.authorization__title {
-  display: inline-block;
-  position: relative;
-  font-size: 35px;
-  font-family: bernier_regularregular, serif;
-  line-height: 1.2;
-  color: #455a64;
-}
-
-.authorization__login, .authorization__pass {
+.authorization__input {
   position: relative;
   width: 340px;
   height: 45px;
@@ -22,9 +13,16 @@
   margin: 10px auto 20px;
   text-align: left;
   overflow: hidden;
+
+  &:hover {
+    .authorization__icon {
+      color: #00bfa5;
+    }
+  }
+
 }
 
-.login__icon, .pass__icon {
+.authorization__icon {
   position: absolute;
   display: inline-block;
   height: 100%;
@@ -35,6 +33,7 @@
   line-height: 2.5;
   color: #c4cbcd;
   text-align: center;
+  transition: color 0.5s;
 }
 
 .login__input, .pass__input {
