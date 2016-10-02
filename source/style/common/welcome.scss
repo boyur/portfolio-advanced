@@ -26,6 +26,7 @@
 }
 
 .social--header {
+  padding: 30px 0 0;
   max-width: 50%;
   float: left;
   margin-left: 15px;
@@ -41,5 +42,34 @@
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.social--footer {
+  padding: 0;
+  font-size: 22px;
+
+  a {
+    color: #fff;
+    opacity: 0.5;
+    padding: 5px;
+
+    &:active {
+      color: #fff;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  i {
+    height: 24px;
+    width: 24px;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 26px;
   }
 }

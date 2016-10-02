@@ -6,8 +6,6 @@
   text-align: center;
   border-radius: 50%;
   overflow: hidden;
-  //background-image: url("../img/welcome/avatar.jpg");
-  //background-size: cover;
   margin: 10px;
   vertical-align: middle;
 }
@@ -27,6 +25,12 @@
   font-size: 28px;
   line-height: 1.2;
   color: #fff;
+}
+
+.user__title--header {
+  margin-top: 10px;
+  font-size: 32px;
+  line-height: 1.5;
 }
 
 .user__text {
@@ -51,10 +55,8 @@
   font-family: bernier_regularregular, serif;
   line-height: 1;
   color: #455a64;
-}
-
-.big__title--color {
-  background: #faf8f0;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .title-medium {
@@ -65,6 +67,12 @@
   line-height: 1.2;
   text-align: center;
   color: #455a64;
+}
+
+.title-medium--about {
+  position: absolute;
+  width: 40%;
+  top: 0;
 }
 
 .title-dashes {
@@ -96,12 +104,30 @@
   transform: scale(1);
 }
 
+.title-dashes__bg--medium {
+  svg {
+    width: 357px;
+    height: 125px;
+  }
+}
+
 .title--bg {
   display: table;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.title--bg-blog {
+  transform: translate(-50%, -90%);
+}
+
+
+.title--blog {
+  color: white;
+  display: block;
+  margin-top: -50px;
 }
 
 .title-dashes--double {
