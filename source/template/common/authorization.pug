@@ -1,15 +1,15 @@
 .authorization#auth_block
   .title-medium.title-dashes Авторизуйтесь
 
-  .authorization__input
+  .authorization__item
     .authorization__icon
       i(class="fa fa-user" aria-hidden="true")
-    input(type="text").login__input
+    input(type="text" placeholder="Логин").authorization__input
 
-  .authorization__input
+  .authorization__item
     .authorization__icon
       i(class="fa fa-key" aria-hidden="true")
-    input(type="password").pass__input
+    input(type="password" placeholder="Пароль").authorization__input
 
   .checkbox
     input(id="check1" type="checkbox" name="check" value="check1")

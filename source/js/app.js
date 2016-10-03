@@ -42,8 +42,7 @@ window.onload = function () {
 
     ymaps.ready(init);
     var
-      myMap,
-      myPlacemark;
+      myMap;
 
     function init() {
       myMap = new ymaps.Map("map", {

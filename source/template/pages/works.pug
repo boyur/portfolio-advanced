@@ -12,7 +12,8 @@ block content
                 .header__triangle-svg
                     include ../../icons/triangle.svg
                 .arrow-down-little
-                    include ../../icons/arrow_down.svg
+                    a(href='#slider')
+                        include ../../icons/arrow_down.svg
 
         .works
             .works__title
@@ -21,9 +22,7 @@ block content
                         include ../../icons/works_header.svg
                     .title-dashes.title--bg Мои работы
 
-
-
-            .slider
+            .slider#slider
                 .slider__content
                     .slider__content-main
                         .title-medium.title-dashes.title-dashes--double Сайт школы онлайн Образования
@@ -53,17 +52,17 @@ block content
                         Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний!
                     .about-talk__comment-author
                         .user__avatar.user__avatar--comment
-                            img.user__avatar-img(src="assets/img/welcome/avatar.jpg")
+                            img.user__avatar-img(src="assets/img/works/dima.png")
                         .about-talk__comment-name
                             .about-talk__comment-fio Ковальчук Дмитрий
-                                .about-talk__comment-description основатель Loftschool
+                            .about-talk__comment-description основатель Loftschool
 
                 .about-talk__comment-block
                     .about-talk__comment-text.
                         Этот код выдержет любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
                     .about-talk__comment-author
                         .user__avatar.user__avatar--comment
-                            img.user__avatar-img(src="assets/img/welcome/avatar.jpg")
+                            img.user__avatar-img(src="assets/img/works/zar.png")
                         .about-talk__comment-name
                             .about-talk__comment-fio Зар Захаров
                             .about-talk__comment-description преподаватель
@@ -71,9 +70,9 @@ block content
             .about-talk__contact
                 .title-medium.title-dashes Связаться со мной
                 form
-                    input(type="text").contact-input
-                    input(type="text").contact-input
-                    textarea(rows="4").contact-input
+                    input(type="text" placeholder="Имя").contact-input
+                    input(type="text" placeholder="Email").contact-input
+                    textarea(rows="4" placeholder="Ваше сообщение").contact-textarea
                 .start__btns
                     a(href='#').start__btn Отправить
                     a(href='#').start__btn Очистить

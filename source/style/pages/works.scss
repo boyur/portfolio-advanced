@@ -17,7 +17,7 @@
 }
 
 .slider {
-  height: 750px;
+  height: 100vh;
 }
 
 .slider__content, .slider__img {
@@ -215,6 +215,11 @@
   }
 }
 
+.about-talk__comment-text {
+  line-height: 1.6;
+  color: #455a64;
+}
+
 .about-talk__comment-author {
   margin-top: 20px;
 }
@@ -222,6 +227,12 @@
 .about-talk__comment-name {
   display: inline-block;
   vertical-align: middle;
+  color: #20b5a1;
+  line-height: 1.5;
+}
+
+.about-talk__comment-fio {
+  font-family: robotobold, serif;
 }
 
 .about-talk__contact {
@@ -234,7 +245,7 @@
   overflow: hidden;
 }
 
-.contact-input {
+.contact-input, .contact-textarea {
   box-sizing: border-box;
   width: 340px;
   min-height: 40px;
@@ -242,4 +253,13 @@
   border-radius: 5px;
   background-color: #ffffff;
   margin: 10px 0;
+  padding: 0 20px;
+
+  &::-webkit-input-placeholder {
+    color: rgba(55, 62, 66, 0.5);
+  }
+}
+
+.contact-textarea {
+  padding: 20px;
 }
