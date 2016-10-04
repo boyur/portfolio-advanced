@@ -4,6 +4,10 @@
   transform: scaleX(0);
 }
 
+.authorization__main {
+  padding: 0 20px;
+}
+
 .authorization__item {
   position: relative;
   width: 340px;
@@ -18,6 +22,14 @@
     .authorization__icon {
       color: #00bfa5;
     }
+  }
+
+  @media (--tablet) {
+    width: 310px;
+  }
+
+  @media (--mobile) {
+    width: 260px;
   }
 
 }
@@ -56,6 +68,14 @@
   &::-webkit-input-placeholder {
     color: rgba(55, 62, 66, 0.5);
   }
+  
+  @media (--tablet) {
+    width: 265px;
+  }
+
+  @media (--mobile) {
+    width: 210px;
+  }
 }
 
 .radio-text {
@@ -65,7 +85,6 @@
   margin: 10px 10px 0 10px;
 }
 
-// Custom checkbox
 .checkbox{
   box-sizing: border-box;
   font-family: robotoregular, serif;

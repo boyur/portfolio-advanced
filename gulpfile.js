@@ -55,13 +55,13 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function() {
   gulp.watch('source/style/**/*.pcss', gulp.series('styles'));
-  gulp.watch('source/template/pages/*.pug', gulp.series('pug'));
+  gulp.watch('source/template/**/*.pug', gulp.series('pug'));
 });
 
 // Запуска сервера
 gulp.task('browser-sync', function() {
 
-  gulp.watch('build/assets/**/*.*').on('change', browserSync.reload);
+  gulp.watch('build/**/*.*').on('change', browserSync.reload);
 
   return browserSync.init({
     server: {
