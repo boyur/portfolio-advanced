@@ -16,9 +16,20 @@
 }
 
 .header__menu {
-  max-width: 50%;
   float: right;
   padding: 30px;
+
+  @media (--tablet) {
+    padding: 20px;
+  }
+
+  @media (--mobile) {
+    padding: 10px;
+
+    svg {
+      transform: scale(0.75);
+    }
+  }
 }
 
 .header__main {
@@ -33,6 +44,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  .title-dashes__bg {
+    @media (--tablet) {
+      visibility: hidden;
+    }
+  }
+
+
 }
 
 .header__title--blog {
