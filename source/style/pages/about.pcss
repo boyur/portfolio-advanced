@@ -1,10 +1,12 @@
 .about {
+  /*display: flex;*/
   position: relative;
   height: 100vh;
 
-  @media (--tablet) {
+  @media (--display-medium) {
     height: auto;
   }
+
 }
 
 .about__left {
@@ -15,6 +17,10 @@
   float: left;
   padding: 20px 40px;
   background: #F0EFE9;
+
+  @media (--display-medium) {
+    height: auto;
+  }
 
   @media (--tablet) {
     float: none;
@@ -37,6 +43,7 @@
 
   @media (--display-medium) {
     padding: 20px 10px 20px 40px;
+    height: auto;
   }
 
   @media (--tablet) {
