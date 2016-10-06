@@ -231,6 +231,10 @@
 .about-talk__comment {
   width: 800px;
   margin: 50px auto 70px;
+
+  @media (--tablet) {
+    width: auto;
+  }
 }
 
 .about-talk__comment-block {
@@ -239,6 +243,20 @@
   vertical-align: top;
   text-align: left;
   margin: 1em;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (--mobile) {
+    display: block;
+    width: auto;
+    margin: 0 0 1em;
+  }
 
 
   &:before {
@@ -249,6 +267,10 @@
     color: rgba(55, 62, 66, 0.2);
     font-size: 2.2em;
     line-height: 1;
+
+    @media (--mobile) {
+      text-align: center;
+    }
   }
 }
 
@@ -280,11 +302,17 @@
   background-image: url("../img/works/contact.jpg");
   margin: auto auto 300px;
   overflow: hidden;
+  transition: .5s;
+
+  @media (--mobile) {
+    width: 300px;
+    margin: auto auto 100px;
+  }
 }
 
 .contact-input, .contact-textarea {
   box-sizing: border-box;
-  width: 340px;
+  width: 300px;
   min-height: 40px;
   border-color: transparent;
   border-radius: 5px;
@@ -294,6 +322,10 @@
 
   &::-webkit-input-placeholder {
     color: rgba(55, 62, 66, 0.5);
+  }
+
+  @media (--mobile) {
+    width: 260px;
   }
 }
 

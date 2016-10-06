@@ -1,4 +1,14 @@
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8,
+    scrollwheel: false
+  });
+}
+
 window.onload = function () {
+
   (function () {
     'use strict';
 
@@ -38,24 +48,40 @@ window.onload = function () {
   })();
 
 // Yandex map
+//   (function () {
+//
+//     ymaps.ready(init);
+//     var
+//       myMap;
+//
+//     function init() {
+//       myMap = new ymaps.Map("map", {
+//         center: [44.73498924390664, 37.73530074198924],
+//         zoom: 14,
+//         controls: []
+//       });
+//
+//       myMap.behaviors.disable('scrollZoom');
+//     }
+//
+//   })();
+// }();
+
+// Google Map
+
   (function () {
 
-    ymaps.ready(init);
-    var
-      myMap;
-
-    function init() {
-      myMap = new ymaps.Map("map", {
-        center: [44.73498924390664, 37.73530074198924],
-        zoom: 14,
-        controls: []
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
       });
-
-      myMap.behaviors.disable('scrollZoom');
     }
 
   })();
 }();
+
 
 // scroll
 (function () {
@@ -68,3 +94,4 @@ window.onload = function () {
     return false;
   });
 })();
+
