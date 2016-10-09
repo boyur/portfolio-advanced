@@ -337,3 +337,82 @@ function initMap() {
 
 })();
 
+// Preloader
+(function() {
+
+  var imgs = [];
+  var background;
+
+  var dom = document.body.querySelectorAll('*');
+  //console.log(dom);
+  Array.prototype.forEach.call(dom, function(el, i){
+
+    background = getComputedStyle(el)['background-image'];
+    console.log(background);
+
+    if (background !== 'none') {
+      var path = background.replace('url("', '').replace('")', '');
+
+      if( path.indexOf('-gradient(') !== -1 ) return;
+
+      imgs.push(path);
+    }
+
+  });
+
+  console.log(imgs);
+
+
+  // $('*').each(function () {
+  //   var $this      = $(this);
+  //   var background = $this.css('background-image');
+  //   var isImg      = $this.is('img');
+  //
+  //   if (background !== 'none') {
+  //     var path = background.replace('url("', '').replace('")', '');
+  //
+  //     if( path.indexOf('-gradient(') !== -1 ) return;
+  //
+  //     imgs.push(path);
+  //   }
+  //
+  //   if (isImg) {
+  //     var path = $this.attr('src');
+  //
+  //     if (!path) return;
+  //     imgs.push(path);
+  //   }
+  // });
+  //
+  //
+  // var percentsTotal = 1;
+  //
+  // for (var i = 0; i < imgs.length; i++) {
+  //   var image = $('<img>', {
+  //     attr: {
+  //       src: imgs[i]
+  //     }
+  //   });
+  //
+  //   image.one({
+  //     load : function () {
+  //       setPercents(imgs.length, percentsTotal);
+  //       percentsTotal++;
+  //     },
+  //     error : function () {
+  //       percentsTotal++;
+  //     }
+  //   });
+  // }
+  //
+  // function setPercents(total, current) {
+  //   var percent = Math.ceil(current / total * 100);
+  //
+  //   if (percent >= 100) {
+  //     $('.preloader').fadeOut();
+  //   }
+  //
+  //   $('.preloader__value').text(percent);
+  // }
+
+})();
