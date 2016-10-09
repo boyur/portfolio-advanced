@@ -22,34 +22,31 @@ block content
                         include ../../icons/works_header.svg
                     .title-dashes.title--bg Мои работы
 
-            .slider#slider
+            #slider.slider
                 .slider__content
-                    .slider__content-main
+                    #content.slider__content-main
                         .title-medium.title-dashes.title-dashes--double Сайт школы онлайн Образования
-                        .slider__content-technologies HTML , CSS, JAVASCRIPT
-                        a(href='#')
+                        .slider__content-technologies HTML, CSS, JAVASCRIPT
+                        a(href='#').btn-website-link
                             button.btn-website
                                 i(class="fa fa-link" aria-hidden="true")
                                 | Посмотреть сайт
-
-                .slider__img
-                    .slider__img-top
-                        img(src="assets/img/works/work-1.png")
-
-                    .slider__content.slider__content--mobile
-                        .slider__content-main
-                            .title-medium.title-dashes.title-dashes--double Сайт школы онлайн Образования
-                            .slider__content-technologies HTML , CSS, JAVASCRIPT
-                            a(href='#')
-                                button.btn-website
-                                    i(class="fa fa-link" aria-hidden="true")
-                                    | Посмотреть сайт
-
-                    .slider__img-left
-                        img(src="assets/img/works/work-2.png")
-                    .slider__img-right
-                        img(src="assets/img/works/work-3.png")
-
+                #slide.slider__img
+                    img.slider__slide-img.active-slide(src='assets/slider/img/work-1.png', alt='')
+                    img.slider__slide-img(src='assets/slider/img/work-2.png', alt='')
+                    img.slider__slide-img(src='assets/slider/img/work-3.png', alt='')
+                    img.slider__slide-img(src='assets/slider/img/work-4.png', alt='')
+                .display__button
+                    #sliderBtnDown.slider__button-down
+                        img.slider__button-img(src='assets/slider/img/work-1.png', alt='')
+                        img.slider__button-img(src='assets/slider/img/work-2.png', alt='')
+                        img.slider__button-img(src='assets/slider/img/work-3.png', alt='')
+                        img.slider__button-img.active(src='assets/slider/img/work-4.png', alt='')
+                    #sliderBtnUp.slider__button-up
+                        img.slider__button-img.slider__button-img--up(src='assets/slider/img/work-1.png', alt='')
+                        img.slider__button-img.slider__button-img--up.active(src='assets/slider/img/work-2.png', alt='')
+                        img.slider__button-img.slider__button-img--up(src='assets/slider/img/work-3.png', alt='')
+                        img.slider__button-img.slider__button-img--up(src='assets/slider/img/work-4.png', alt='')
         .about-talk
             .big__title
                 .title-dashes__bg

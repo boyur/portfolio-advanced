@@ -2,33 +2,18 @@
 
 
 const gulp = require('gulp');
-//const gulpCopy = require('gulp-file-copy');
 const sourcemaps = require('gulp-sourcemaps');
 const postcss = require('gulp-postcss');
 const assets = require('postcss-assets');
 const autoprefixer = require('autoprefixer');
 const concat = require('gulp-concat');
-//const concatCss = require('gulp-concat-css');
 const reporter = require('postcss-browser-reporter');
 const nested = require('postcss-nested');
 const short = require('postcss-short');
 const atImport = require("postcss-import");
-const customMedia = require("postcss-custom-media")
-
-const stylelint = require('stylelint');
+const customMedia = require("postcss-custom-media");
 const pug = require('gulp-pug');
 const browserSync = require('browser-sync').create();
-
-//const rulesStyles = require('./stylelintrc.json');
-
-// Pug
-gulp.task('pug', function buildHTML() {
-  return gulp.src('./source/template/pages/*.pug')
-    .pipe(pug({
-      pretty: true
-    }))
-    .pipe(gulp.dest('./build'));
-});
 
 // PostCSS
 gulp.task('styles', function() {
@@ -38,11 +23,7 @@ gulp.task('styles', function() {
     assets,
     short,
     customMedia,
-    //stylelint(rulesStyles),
-    autoprefixer,
-    reporter({
-      selector: 'body:before'
-    })
+    autoprefixer
   ];
 
   return gulp.src('./source/style/*.pcss')
@@ -53,9 +34,27 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('./build/assets/css'));
 });
 
+// Pug
+gulp.task('pug', function buildHTML() {
+  return gulp.src('./source/template/pages/*.pug')
+    .pipe(pug({
+      pretty: true
+    }))
+    .pipe(gulp.dest('./build'));
+});
+
+// JS
+gulp.task('js', function() {
+
+  return gulp.src('./source/js/app.js')
+    .pipe(gulp.dest('./build/assets/js'));
+
+});
+
 gulp.task('watch', function() {
   gulp.watch('source/style/**/*.pcss', gulp.series('styles'));
   gulp.watch('source/template/**/*.pug', gulp.series('pug'));
+  gulp.watch('source/js/*.js', gulp.series('js'));
 });
 
 // Запуска сервера
