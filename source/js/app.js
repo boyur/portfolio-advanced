@@ -341,26 +341,56 @@ function initMap() {
 (function() {
 
   var imgs = [];
-  var background;
+  var path;
+  var preload = document.getElementById('preloader');
 
   var dom = document.body.querySelectorAll('*');
-  //console.log(dom);
   Array.prototype.forEach.call(dom, function(el, i){
 
-    background = getComputedStyle(el)['background-image'];
-    console.log(background);
+    var background = getComputedStyle(el)['background-image'];
 
     if (background !== 'none') {
-      var path = background.replace('url("', '').replace('")', '');
+      path = background.replace('url("', '').replace('")', '');
 
       if( path.indexOf('-gradient(') !== -1 ) return;
 
       imgs.push(path);
     }
 
+    if (el.tagName == 'IMG') {
+      path = el.getAttribute('src');
+
+      if (!path) return;
+      imgs.push(path);
+    }
+
+
   });
 
   console.log(imgs);
+
+  var percents = 100 / imgs.length;
+  var counter = 0;
+
+  for (var i = 0; i < imgs.length; i++) {
+    var img = document.createElement('img');
+    img.src = imgs[i];
+
+    img.onload = function(){
+      counter++;
+      preload.textContent = Math.round(counter * percents);
+    };
+  }
+
+  // function setPercents(total, current) {
+  //     var percent = Math.ceil(current / total * 100);
+  //
+  //     if (percent >= 100) {
+  //       $('.preloader').fadeOut();
+  //     }
+  //
+  //     $('.preloader__value').text(percent);
+  //   }
 
 
   // $('*').each(function () {
