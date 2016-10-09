@@ -147,7 +147,15 @@ function initMap() {
 
         console.log(activeDown[0]);
 
-        activeDown[0].style.top = '110%';
+        // Ajax
+
+        xhr.open('GET', 'assets/slider/content/' + contentArr[counterFn(counter + direction)] + '.html', true); //
+        xhr.onload = function () {
+          content.innerHTML = this.responseText;
+        };
+        xhr.send();
+
+        activeDown[0].style.top = '100%';
         activeSlide[0].style.opacity = '0';
         imgTop[counterFn(counter + direction)].style.opacity = '1';
 
@@ -156,7 +164,7 @@ function initMap() {
 
         console.log(imgUp);
 
-        activeUp[0].style.top = '-110%';
+        activeUp[0].style.top = '-100%';
         imgUp[counterFn(counterUp + direction)].style.visibility = 'visible';
         imgUp[counterFn(counterUp + direction)].style.top = '0';
 
@@ -185,12 +193,12 @@ function initMap() {
 
 
         activeDown[0].style.visibility = 'hidden';
-        activeDown[0].style.top = '-110%';
+        activeDown[0].style.top = '-100%';
         activeDown[0].classList.remove("active");
         imgDown[counterFn(counterDown + direction)].classList.add("active");
 
         activeUp[0].style.visibility = 'hidden';
-        activeUp[0].style.top = '110%';
+        activeUp[0].style.top = '100%';
         activeUp[0].classList.remove("active");
         imgUp[counterFn(counterUp + direction)].classList.add("active");
 
@@ -208,18 +216,12 @@ function initMap() {
         resolve();
       }
 
-      // Ajax
-
-      xhr.open('GET', 'assets/slider/content/' + contentArr[counterFn(counter + direction)] + '.html', true); //
-      xhr.onload = function () {
-        content.innerHTML = this.responseText;
-      };
-      xhr.send();
-
 
     }).then(function () {
-      flag = true;
-      console.log("ready;");
+      setTimeout(function () {
+        flag = true;
+        console.log("ready;");
+      }, 500);
     });
 
   }
@@ -239,18 +241,16 @@ function initMap() {
       var activeUp = btnUp.getElementsByClassName("active");
       var activeSlide = slide.getElementsByClassName("active-slide");
 
-      // Ajax
-      var content = document.getElementById('content');
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'content/' + contentArr[counter] + '.html', true); //
-      xhr.onload = function () {
-        content.innerHTML = this.responseText;
-      };
-      xhr.send();
-
 
       if (flag) {
         flag = false;
+
+        // Ajax
+        xhr.open('GET', 'assets/slider/content/' + contentArr[counterFn(counter + direction)] + '.html', true); //
+        xhr.onload = function () {
+          content.innerHTML = this.responseText;
+        };
+        xhr.send();
 
         console.log(activeDown[0]);
 
@@ -311,19 +311,15 @@ function initMap() {
 
         console.log("animation end");
         flagTransition = false;
+
         resolve();
       }
 
-      // Ajax
-      xhr.open('GET', 'assets/slider/content/' + contentArr[counterFn(counter + direction)] + '.html', true); //
-      xhr.onload = function () {
-        content.innerHTML = this.responseText;
-      };
-      xhr.send();
-
     }).then(function () {
-      flag = true;
-      console.log("ready;");
+      setTimeout(function () {
+        flag = true;
+        console.log("ready;");
+      }, 500);
     });
   }
 
