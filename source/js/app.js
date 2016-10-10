@@ -4,6 +4,8 @@
 var map;
 
 function initMap() {
+  if (!document.getElementById('map')) return;
+
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.397, lng: 150.644},
     zoom: 8,
@@ -389,7 +391,10 @@ function initMap() {
       preloaderCounter.textContent = procent;
 
       if (procent == 100) {
-        preloader.style.display = 'none';
+        preloader.style.opacity = '0';
+        preloader.addEventListener("transitionend", function () {
+          preloader.style.display = 'none';
+        }, false);
       }
     };
   }
@@ -456,7 +461,7 @@ function initMap() {
 (function () {
 
   var linkNav = document.querySelectorAll('[href^="#"]');
-  var V = 1.5;  // скорость, может иметь дробное значение через точку
+  var V = 0.5;  // скорость, может иметь дробное значение через точку
   for (var i = 0; i < linkNav.length; i++) {
     linkNav[i].onclick = function(){
       var w = window.pageYOffset,
