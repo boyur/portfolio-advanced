@@ -15,9 +15,10 @@ html
     //- favicon block end
 
     link(rel='stylesheet' href='/assets/css/style.min.css')
-    //script(src="//api-maps.yandex.ru/2.0/?load=package.standard&lang=ru-RU" type="text/javascript" defer)
-    //script(src='/assets/js/foundation.js' defer)
-    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBluTHs8Pa9TV-f7951IqQNzOM2H6X-HRU&callback=initMap" async defer)
+
+    if page == 'about'
+      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBluTHs8Pa9TV-f7951IqQNzOM2H6X-HRU&callback=initMap" async defer)
+
     script(src='/assets/js/app.js' defer)
 
 
@@ -26,9 +27,9 @@ html
     <![endif]-->
 
   body
-    .preloader
+    .preloader#preloader
       .preloader__main
         .preloader__spiner
-        span.preloader__value(data-unit="%")#preloader 0
+        span.preloader__value(data-unit="%")#preloaderCounter 0
 
     block content

@@ -5,9 +5,10 @@ block variables
 
 block content
   .wrapper-start
-      include ../common/authorization
-      include ../common/welcome
+      .welcome__flipper#welcomeFlipper
+        include ../common/authorization
+        include ../common/welcome
       footer.footer-start
           .footer-start__content © Артем Боюр | создано с любовью в LoftSchool | 2016
 
-  a(href='#').auth-btn#auth_btn Авторизоваться
+  a(href='#').auth-btn#authBtn Авторизоваться

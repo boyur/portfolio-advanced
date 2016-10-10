@@ -102,6 +102,11 @@ function initMap() {
 // Slider
 (function () {
   var slide = document.getElementById("slide");
+
+  if (slide == null) {
+    return;
+  }
+
   var btnDown = document.getElementById("sliderBtnDown");
   var btnUp = document.getElementById("sliderBtnUp");
   var imgDown = btnDown.getElementsByClassName("slider__button-img");
@@ -338,11 +343,12 @@ function initMap() {
 })();
 
 // Preloader
-(function() {
+(function () {
 
   var imgs = [];
   var path;
-  var preload = document.getElementById('preloader');
+  var preloader = document.getElementById('preloader');
+  var preloaderCounter = document.getElementById('preloaderCounter');
 
   var dom = document.body.querySelectorAll('*');
   Array.prototype.forEach.call(dom, function(el, i){
@@ -370,6 +376,7 @@ function initMap() {
   console.log(imgs);
 
   var percents = 100 / imgs.length;
+  var procent = 0;
   var counter = 0;
 
   for (var i = 0; i < imgs.length; i++) {
@@ -378,8 +385,97 @@ function initMap() {
 
     img.onload = function(){
       counter++;
-      preload.textContent = Math.round(counter * percents);
+      procent = Math.round(counter * percents);
+      preloaderCounter.textContent = procent;
+
+      if (procent == 100) {
+        preloader.style.display = 'none';
+      }
     };
+  }
+
+})();
+
+// Header menu
+(function () {
+  var nav = document.getElementById('nav');
+  var navHeader = document.getElementById('navHeader');
+  var navOpen = document.getElementById('navOpen');
+
+  if (nav == null) return;
+
+  nav.addEventListener("click", openNav, false);
+
+  function openNav() {
+    console.log("click");
+
+    if (nav.classList.contains('nav--open')) {
+      nav.classList.remove('nav--open');
+      navOpen.style.display = 'none';
+    } else {
+      nav.classList.add('nav--open');
+      navOpen.style.display = 'block';
+    }
+  }
+
+})();
+
+// Welcome
+(function () {
+
+  var welcome = document.getElementById('welcomeFlipper');
+  var authBtn = document.getElementById('authBtn');
+  var flipAuth = document.getElementById('authBlock');
+  var flipWelcome = document.getElementById('welcomeBlock');
+  var welcomeBtn = document.getElementById('welcomeBtn');
+
+
+  if (welcome == null) return;
+
+
+  authBtn.addEventListener('click', flip);
+  welcomeBtn.addEventListener('click', flip);
+
+  function flip() {
+
+    if(welcome.classList.contains('welcome__flipper--flip')) {
+      authBtn.style.opacity = '1';
+      welcome.classList.remove('welcome__flipper--flip');
+      flipAuth.classList.add('welcome__flipper--back');
+    } else {
+      authBtn.style.opacity = '0';
+      welcome.classList.add('welcome__flipper--flip');
+      flipWelcome.classList.add('welcome__flipper--back');
+
+    }
+  }
+
+})();
+
+// Scroll
+(function () {
+
+  var linkNav = document.querySelectorAll('[href^="#"]');
+  var V = 1.5;  // скорость, может иметь дробное значение через точку
+  for (var i = 0; i < linkNav.length; i++) {
+    linkNav[i].onclick = function(){
+      var w = window.pageYOffset,
+        hash = this.href.replace(/[^#]*(.*)/, '$1');
+
+      if (hash == '#') return;
+
+      var t = document.querySelector(hash).getBoundingClientRect().top,
+        start = null;
+      requestAnimationFrame(step);
+      function step(time) {
+        if (start === null) start = time;
+        var progress = time - start,
+          r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
+        window.scrollTo(0,r);
+        if (r != w + t) {requestAnimationFrame(step)} else {location.hash = hash}
+      }
+      return false;
+    }
   }
 
 })();

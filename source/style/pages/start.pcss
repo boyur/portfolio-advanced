@@ -8,6 +8,7 @@
   background-image: url('../img/welcome/bg.jpg');
   background-size: cover;
   min-height: 550px;
+  perspective: 1000;
 
   &:after {
     content: '';
@@ -23,24 +24,14 @@
 
 }
 
-.welcome {
-  transition: .5s;
-  transform: scaleX(1);
-}
-
-.welcome,
-.authorization {
+.welcome__flipper {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   width: 380px;
-  background-color: rgba(252, 252, 252, .85);
-  border-radius: 5px;
-  padding-top: 30px;
-  text-align: center;
-  overflow: hidden;
-  padding-bottom: 85px;
-
+  height: 400px;
+  transform-style: preserve-3d;
+  transition: transform .6s;
 
   @media (--tablet) {
     width: 350px;
@@ -49,8 +40,37 @@
   @media (--mobile) {
     width: 300px;
   }
+}
+
+.welcome__flipper--flip {
+  transform: rotateY(180deg);
+}
+
+.welcome__flipper--back {
+  backface-visibility: hidden;
+}
+
+.welcome,
+.authorization {
+  display: block;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(252, 252, 252, .85);
+  border-radius: 5px;
+  padding-top: 30px;
+  text-align: center;
+  padding-bottom: 85px;
+  transition: opacity .5s;
 
 }
+.welcome {
+  transform: rotateY(0deg);
+}
+
+.authorization {
+  transform: rotateY(180deg);
+}
+
 
 .welcome__main {
   padding: 0 20px;
@@ -139,7 +159,7 @@
   border-radius: 5px;
 
   text-decoration: none;
-  transition: color .5s, background .5s;
+  transition: color .5s, background .5s, opacity .5s;
 
   &:hover {
     background: rgba(255, 255, 255, 1);
@@ -163,12 +183,6 @@
     right: auto;
   }
 
-}
-
-.authorization {
-  display: none;
-  transition: 0.5s;
-  transform: scaleX(0);
 }
 
 .authorization__main {

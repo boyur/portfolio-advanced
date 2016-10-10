@@ -1,5 +1,6 @@
 body {
   margin: 0;
+
 }
 
 html, body {
@@ -44,6 +45,7 @@ input {
   display: flex;
   background: #00BFA5;
   color: #fff;
+  opacity: 1;
 }
 
 .preloader__main {
@@ -62,33 +64,33 @@ input {
   border-radius: 50%;
   -webkit-animation: spinner 2s infinite linear;
   animation: spinner 2s infinite linear;
-}
 
-.preloader__spinner:before, .preloader__spinner:after {
-  content: '';
-  position: absolute;
-  border: inherit;
-  border-radius: 50%;
-  -webkit-animation: inherit;
-  animation: inherit;
-}
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    border: inherit;
+    border-radius: 50%;
+    -webkit-animation: inherit;
+    animation: inherit;
+  }
 
-.preloader__spinner:before {
-  top: -10px;
-  bottom: -10px;
-  left: -10px;
-  right: -10px;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-}
+  &:before {
+    top: -10px;
+    bottom: -10px;
+    left: -10px;
+    right: -10px;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+  }
 
-.preloader__spinner:after {
-  top: 7px;
-  bottom: 7px;
-  left: 7px;
-  right: 7px;
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s;
+  &:after {
+    top: 7px;
+    bottom: 7px;
+    left: 7px;
+    right: 7px;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+  }
 }
 
 .preloader__value {
@@ -105,8 +107,8 @@ input {
 
 @keyframes spinner {
   from {
-    -webkit-transform: rotate(0);
-    transform: rotate(0); }
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg); }
   to {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg); }
