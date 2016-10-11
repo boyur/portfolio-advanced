@@ -445,10 +445,12 @@ function initMap() {
 
     if(welcome.classList.contains('welcome__flipper--flip')) {
       authBtn.style.opacity = '1';
+      authBtn.style.pointerEvents = 'auto';
       welcome.classList.remove('welcome__flipper--flip');
       flipAuth.classList.add('welcome__flipper--back');
     } else {
       authBtn.style.opacity = '0';
+      authBtn.style.pointerEvents = 'none';
       welcome.classList.add('welcome__flipper--flip');
       flipWelcome.classList.add('welcome__flipper--back');
 

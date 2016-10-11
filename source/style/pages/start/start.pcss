@@ -61,6 +61,7 @@
   text-align: center;
   padding-bottom: 85px;
   transition: opacity .5s;
+  overflow: hidden;
 
 }
 .welcome {
@@ -69,6 +70,10 @@
 
 .authorization {
   transform: rotateY(180deg);
+
+  @media (--mobile) {
+    padding-top: 35px;
+  }
 }
 
 
@@ -125,6 +130,26 @@
   width: 50%;
 }
 
+.footer-start {
+  font-family: robotolight, serif;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.footer-start__content {
+  margin-bottom: 30px;
+
+  @media (--mobile) {
+    padding: 0 38px;
+    margin-bottom: 8px;
+  }
+}
+
+
+
 .auth-btn {
   display: inline-block;
   position: absolute;
@@ -163,22 +188,4 @@
     right: auto;
   }
 
-}
-
-.footer-start {
-  font-family: robotolight, serif;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-}
-
-.footer-start__content {
-  margin-bottom: 30px;
-
-  @media (--mobile) {
-    padding: 0 38px;
-    margin-bottom: 8px;
-  }
 }

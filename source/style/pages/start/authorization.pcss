@@ -24,6 +24,7 @@
 
   @media (--mobile) {
     width: 260px;
+    margin-top: 20px;
   }
 
 }
@@ -77,6 +78,10 @@
   color: rgba(69, 90, 100, 0.8);
   line-height: 2;
   margin: 10px 10px 0 10px;
+
+  @media (--mobile)  {
+    margin-top: 15px;
+  }
 }
 
 .checkbox{
@@ -131,10 +136,13 @@
     border-radius: 13px;
     background-color: #ffffff;
     border: solid 1px #cccccc;
-    width: 21px;
-    height: 21px;
+    size: 21px;
     margin-right: 10px;
     vertical-align: text-bottom;
+
+    @media (--mobile) {
+      size: 18px;
+    }
   }
 
   input[type=radio] {
