@@ -13,10 +13,10 @@ html
 
     //- favicon block start
     //- favicon block end
-    if page == 'about'
-      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBluTHs8Pa9TV-f7951IqQNzOM2H6X-HRU&callback=initMap" async defer)
-
     script(src='/assets/js/app.js' defer)
+
+    if page == 'about'
+      script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBluTHs8Pa9TV-f7951IqQNzOM2H6X-HRU&callback=initMap" defer)
 
     link(rel='stylesheet' href='/assets/css/style.min.css')
 
