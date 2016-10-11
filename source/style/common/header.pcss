@@ -42,12 +42,24 @@
 
 .header__triangle-svg {
   margin-bottom: -4px;
+
+  @media (--tablet) {
+    margin-bottom: -5px;
+  }
+
+  @media (--mobile) {
+    margin-bottom: -4px;
+  }
 }
 
 .nav {
   padding: 30px;
   float: right;
   color: white;
+
+  @media (--mobile) {
+    padding: 10px;
+  }
 }
 
 .nav__trigger {
@@ -56,6 +68,10 @@
   width: 40px;
   height: 35px;
   cursor: pointer;
+
+  @media (--mobile) {
+    transform: scale(0.6);
+  }
 }
 
 .nav__trigger-line {
@@ -139,10 +155,11 @@
   }
 
   & .nav__list {
-    display: inline-block;
     vertical-align: middle;
     margin: auto;
     max-width: 50rem;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   & .nav__item {
@@ -157,7 +174,6 @@
 
   & .nav__link {
     margin: auto;
-    font-size: inherit;
 
     &:before,
     &:after {
@@ -169,10 +185,15 @@
     &:hover {
       &:before,
       &:after {
-        width: 2.2rem;
+        width: 1.5rem;
         opacity: .5;
       }
     }
+
+    @media (--mobile) {
+      font-size: 28px;
+    };
+
   }
 }
 

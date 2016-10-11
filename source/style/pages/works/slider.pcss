@@ -17,6 +17,14 @@
 .slider__content-main {
   display: inline-block;
   text-align: center;
+
+  @media (--mobile) {
+    .title-dashes {
+      &:after, &:before {
+        display: none;
+      }
+    }
+  }
 }
 
 .slider__content-technologies {
@@ -25,6 +33,16 @@
   padding: 15px 0;
   border-top: 1px rgba(0, 150, 136, 0.30) solid;
   border-bottom: 1px rgba(0, 150, 136, 0.30) solid;
+
+  @media (--tablet) {
+    margin: 20px;
+  }
+
+  @media (--mobile) {
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px 0;
+  }
 }
 
 .btn-website-link {
@@ -48,6 +66,12 @@
   i {
     margin-right: 10px;
   }
+
+  @media (--mobile) {
+    font-size: 14px;
+    width: 185px;
+    height: 40px;
+  }
 }
 
 
@@ -63,6 +87,32 @@
 .display__button {
   display: flex;
   height: 30%;
+}
+
+@media screen and (max-width: 1200px) {
+  .slider {
+    display: flex;
+    flex-flow: row wrap;
+    height: 100vh;
+  }
+
+  .slider__content {
+    float: none;
+    width: 100%;
+    height: 30%;
+  }
+
+  .slider__img {
+    width: inherit;
+    height: 50%;
+    order: -1;
+  }
+
+  .display__button {
+    width: inherit;
+    height: 20%;
+  }
+
 }
 
 .slider__button-down, .slider__button-up {
@@ -178,28 +228,3 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .slider {
-    display: flex;
-    flex-flow: row wrap;
-    height: 100vh;
-  }
-
-  .slider__content {
-    float: none;
-    width: 100%;
-    height: 35%;
-  }
-
-  .slider__img {
-    width: inherit;
-    height: 35%;
-    order: -1;
-  }
-
-  .display__button {
-    width: inherit;
-    height: 30%;
-  }
-
-}

@@ -8,6 +8,10 @@
   margin-right: 5%;
   float: left;
   text-align: right;
+  
+  @media (--tablet) {
+    display: none;
+  }
 }
 
 .blog__content {
@@ -16,6 +20,15 @@
   margin-bottom: 200px;
   max-width: 800px;
   float: left;
+
+  @media (--tablet) {
+    padding: 0 40px;
+  }
+
+  @media (--mobile) {
+    padding: 0 20px;
+    text-align: left;
+  }
 }
 
 .article {

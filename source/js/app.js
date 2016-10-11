@@ -1,5 +1,148 @@
 'use strict';
 
+// Preloader
+(function () {
+
+  var imgs = [];
+  var path;
+  var preloader = document.getElementById('preloader');
+  var preloaderCounter = document.getElementById('preloaderCounter');
+
+  var dom = document.body.querySelectorAll('*');
+  Array.prototype.forEach.call(dom, function(el, i){
+
+    var background = getComputedStyle(el)['background-image'];
+
+    if (background !== 'none') {
+      path = background.replace('url("', '').replace('")', '');
+
+      if( path.indexOf('-gradient(') !== -1 ) return;
+
+      imgs.push(path);
+    }
+
+    if (el.tagName == 'IMG') {
+      path = el.getAttribute('src');
+
+      if (!path) return;
+      imgs.push(path);
+    }
+
+
+  });
+
+  console.log(imgs);
+
+  var percents = 100 / imgs.length;
+  var procent = 0;
+  var counter = 0;
+
+  for (var i = 0; i < imgs.length; i++) {
+    var img = document.createElement('img');
+    img.src = imgs[i];
+
+    img.onload = function(){
+      counter++;
+      procent = Math.round(counter * percents);
+      preloaderCounter.textContent = procent;
+
+      if (procent == 100) {
+        preloader.style.opacity = '0';
+        preloader.addEventListener("transitionend", function () {
+          preloader.style.display = 'none';
+        }, false);
+      }
+    };
+  }
+
+})();
+
+// Welcome
+(function () {
+
+  var welcome = document.getElementById('welcomeFlipper');
+  var authBtn = document.getElementById('authBtn');
+  var flipAuth = document.getElementById('authBlock');
+  var flipWelcome = document.getElementById('welcomeBlock');
+  var welcomeBtn = document.getElementById('welcomeBtn');
+
+
+  if (welcome == null) return;
+
+
+  authBtn.addEventListener('click', flip);
+  welcomeBtn.addEventListener('click', flip);
+
+  function flip() {
+
+    if(welcome.classList.contains('welcome__flipper--flip')) {
+      authBtn.style.opacity = '1';
+      authBtn.style.pointerEvents = 'auto';
+      welcome.classList.remove('welcome__flipper--flip');
+      flipAuth.classList.add('welcome__flipper--back');
+    } else {
+      authBtn.style.opacity = '0';
+      authBtn.style.pointerEvents = 'none';
+      welcome.classList.add('welcome__flipper--flip');
+      flipWelcome.classList.add('welcome__flipper--back');
+
+    }
+  }
+
+})();
+
+// Header menu
+(function () {
+  var nav = document.getElementById('nav');
+  var navTrigger = document.getElementById('navTrigger');
+  var navOpen = document.getElementById('navOpen');
+
+  if (nav == null) return;
+
+  navTrigger.addEventListener("click", openNav, false);
+
+  function openNav() {
+    console.log("click");
+
+    if (nav.classList.contains('nav--open')) {
+      nav.classList.remove('nav--open');
+      navOpen.style.display = 'none';
+    } else {
+      nav.classList.add('nav--open');
+      navOpen.style.display = 'block';
+    }
+  }
+
+})();
+
+// Scroll
+(function () {
+
+  var linkNav = document.querySelectorAll('[href^="#"]');
+  var V = 0.5;  // скорость, может иметь дробное значение через точку
+  for (var i = 0; i < linkNav.length; i++) {
+    linkNav[i].onclick = function(){
+      var w = window.pageYOffset,
+        hash = this.href.replace(/[^#]*(.*)/, '$1');
+
+      if (hash == '#') return;
+
+      var t = document.querySelector(hash).getBoundingClientRect().top,
+        start = null;
+      requestAnimationFrame(step);
+      function step(time) {
+        if (start === null) start = time;
+        var progress = time - start,
+          r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
+        window.scrollTo(0,r);
+        if (r != w + t) {requestAnimationFrame(step)} else {location.hash = hash}
+      }
+      return false;
+    }
+  }
+
+})();
+
 // Google Map
 var map;
 
@@ -7,9 +150,10 @@ function initMap() {
   if (!document.getElementById('map')) return;
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8,
+    center: {lat: 44.724, lng: 37.767},
+    zoom: 13,
     scrollwheel: false,
+    disableDefaultUI: true,
     styles: [
       {
         elementType: 'geometry',
@@ -340,149 +484,6 @@ function initMap() {
       result = positionSlide;
     }
     return result;
-  }
-
-})();
-
-// Preloader
-(function () {
-
-  var imgs = [];
-  var path;
-  var preloader = document.getElementById('preloader');
-  var preloaderCounter = document.getElementById('preloaderCounter');
-
-  var dom = document.body.querySelectorAll('*');
-  Array.prototype.forEach.call(dom, function(el, i){
-
-    var background = getComputedStyle(el)['background-image'];
-
-    if (background !== 'none') {
-      path = background.replace('url("', '').replace('")', '');
-
-      if( path.indexOf('-gradient(') !== -1 ) return;
-
-      imgs.push(path);
-    }
-
-    if (el.tagName == 'IMG') {
-      path = el.getAttribute('src');
-
-      if (!path) return;
-      imgs.push(path);
-    }
-
-
-  });
-
-  console.log(imgs);
-
-  var percents = 100 / imgs.length;
-  var procent = 0;
-  var counter = 0;
-
-  for (var i = 0; i < imgs.length; i++) {
-    var img = document.createElement('img');
-    img.src = imgs[i];
-
-    img.onload = function(){
-      counter++;
-      procent = Math.round(counter * percents);
-      preloaderCounter.textContent = procent;
-
-      if (procent == 100) {
-        preloader.style.opacity = '0';
-        preloader.addEventListener("transitionend", function () {
-          preloader.style.display = 'none';
-        }, false);
-      }
-    };
-  }
-
-})();
-
-// Header menu
-(function () {
-  var nav = document.getElementById('nav');
-  var navTrigger = document.getElementById('navTrigger');
-  var navOpen = document.getElementById('navOpen');
-
-  if (nav == null) return;
-
-  navTrigger.addEventListener("click", openNav, false);
-
-  function openNav() {
-    console.log("click");
-
-    if (nav.classList.contains('nav--open')) {
-      nav.classList.remove('nav--open');
-      navOpen.style.display = 'none';
-    } else {
-      nav.classList.add('nav--open');
-      navOpen.style.display = 'block';
-    }
-  }
-
-})();
-
-// Welcome
-(function () {
-
-  var welcome = document.getElementById('welcomeFlipper');
-  var authBtn = document.getElementById('authBtn');
-  var flipAuth = document.getElementById('authBlock');
-  var flipWelcome = document.getElementById('welcomeBlock');
-  var welcomeBtn = document.getElementById('welcomeBtn');
-
-
-  if (welcome == null) return;
-
-
-  authBtn.addEventListener('click', flip);
-  welcomeBtn.addEventListener('click', flip);
-
-  function flip() {
-
-    if(welcome.classList.contains('welcome__flipper--flip')) {
-      authBtn.style.opacity = '1';
-      authBtn.style.pointerEvents = 'auto';
-      welcome.classList.remove('welcome__flipper--flip');
-      flipAuth.classList.add('welcome__flipper--back');
-    } else {
-      authBtn.style.opacity = '0';
-      authBtn.style.pointerEvents = 'none';
-      welcome.classList.add('welcome__flipper--flip');
-      flipWelcome.classList.add('welcome__flipper--back');
-
-    }
-  }
-
-})();
-
-// Scroll
-(function () {
-
-  var linkNav = document.querySelectorAll('[href^="#"]');
-  var V = 0.5;  // скорость, может иметь дробное значение через точку
-  for (var i = 0; i < linkNav.length; i++) {
-    linkNav[i].onclick = function(){
-      var w = window.pageYOffset,
-        hash = this.href.replace(/[^#]*(.*)/, '$1');
-
-      if (hash == '#') return;
-
-      var t = document.querySelector(hash).getBoundingClientRect().top,
-        start = null;
-      requestAnimationFrame(step);
-      function step(time) {
-        if (start === null) start = time;
-        var progress = time - start,
-          r = (t < 0 ? Math.max(w - progress/V, w + t) : Math.min(w + progress/V, w + t));
-        window.scrollTo(0,r);
-        if (r != w + t) {requestAnimationFrame(step)} else {location.hash = hash}
-      }
-      return false;
-    }
   }
 
 })();

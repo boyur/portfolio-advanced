@@ -7,6 +7,11 @@
   text-align: center;
   color: #455a64;
 
+  @media (--tablet) {
+    font-size: 28px;
+    vertical-align: middle;
+  }
+
   @media (--mobile) {
     font-size: 28px;
     vertical-align: middle;
@@ -41,6 +46,16 @@
   padding-bottom: 15px;
 }
 
+.title--slider {
+  @media (--tablet) {
+    font-size: 28px;
+  };
+
+  @media (--mobile) {
+    font-size: 21px;
+  };
+
+}
 
 
 .big__title {
@@ -121,19 +136,69 @@
   display: inline-block;
   position: relative;
   opacity: .07;
+
 }
 
-.title-dashes__bg--auto {
+.title-dashes__bg--works {
+   svg {
+     width: 506px;
+     height: 165px;
+   }
+
+   @media (--tablet) {
+     svg {
+       width: 404px;
+       height: 132px;
+     }
+   }
+
+   @media (--mobile) {
+     svg {
+       width: 253px;
+       height: 83px;
+     }
+   }
+ }
+
+.title-dashes__bg--about-me {
   svg {
-    width: auto;
-    height: auto;
+    width: 499px;
+    height: 175px;
+  }
+
+  @media (--tablet) {
+    svg {
+      width: 398px;
+      height: 140px;
+    }
+  }
+
+  @media (--mobile) {
+    svg {
+      width: 249px;
+      height: 88px;
+    }
   }
 }
 
-.title-dashes__bg--medium {
+.title-dashes__bg--about {
   svg {
     width: 357px;
     height: 125px;
+  }
+
+  @media (--tablet) {
+    svg {
+      width: 249px;
+      height: 88px;
+    }
+  }
+
+  @media (--mobile) {
+    svg {
+      width: 199px;
+      height: 70px;
+    }
   }
 }
 

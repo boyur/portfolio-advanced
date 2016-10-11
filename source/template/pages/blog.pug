@@ -1,11 +1,11 @@
 extends ../_template
 
 block variables
-    - var title = 'Мои работы'
+    - var title = 'Блог'
 
 block content
     .wrapper
-        header.header.header--blog
+        header.header
             .header__top
                 .social.social--header
                     a(href='#')
@@ -14,8 +14,25 @@ block content
                         i(class="fa fa-github-alt" aria-hidden="true")
                     a(href='#')
                         i(class="fa fa-linkedin-square" aria-hidden="true")
-                .header__menu
-                    include ../../icons/hamburger.svg
+                .nav.nav--main#nav
+                    .nav__trigger#navTrigger
+                        .nav__trigger-line
+                        .nav__trigger-line
+                        .nav__trigger-line
+                    .nav__drop#navOpen
+                        .nav__list
+                            .nav__item
+                                a(href="works.html").nav__link.title.title-dashes.title-dashes--white
+                                    | Мои работы
+                            .nav__item
+                                a(href="about.html").nav__link.title.title-dashes.title-dashes--white
+                                    | Обо мне
+                            .nav__item
+                                a(href="blog.html").nav__link.title.title-dashes.title-dashes--white
+                                    | Блог
+                            .nav__item
+                                a(href="index.html").nav__link.title.title-dashes.title-dashes--white
+                                    | Главная
 
             .header__main
                 .header__title.header__title--blog
@@ -29,8 +46,11 @@ block content
             .header__triangle
                 .header__triangle-svg
                     include ../../icons/triangle-blog.svg
+                .arrow-down-little
+                    a(href='#blog')
+                        include ../../icons/arrow_down.svg
 
-        section.blog
+        section.blog#blog
             aside.blog__aside
                 ul.menu
                     li.menu__item.menu__item--active

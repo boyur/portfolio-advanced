@@ -13,12 +13,13 @@ block content
                 .header__triangle-svg
                     include ../../icons/triangle-about.svg
                 .arrow-down-little
-                    include ../../icons/arrow_down.svg
+                    a(href='#about')
+                        include ../../icons/arrow_down.svg
 
-        .about.clearfix
+        .about.clearfix#about
             .about__left
                 .big__title.title-medium--about
-                    .title-dashes__bg.title-dashes__bg--medium
+                    .title-dashes__bg.title-dashes__bg--about
                         include ../../icons/about_header.svg
                     .title-dashes.title--bg Обо мне
                 .about__me
