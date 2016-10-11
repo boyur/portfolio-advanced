@@ -105,7 +105,7 @@
 }
 
 .nav--main {
-  font: 6.3rem/1.5 Bernier, sans-serif;
+  font: 5rem/1.5 Bernier, sans-serif;
 
   & .nav__drop {
     display: none;
@@ -114,11 +114,9 @@
     top: 0;
     left: 0;  right: 0;
     height: 100%;
-    padding: 4rem 10rem;
     text-align: center;
     overflow: auto;
     animation: curtian .5s forwards;
-    background: greenyellow;
 
     &:after {
       content: '';
@@ -136,7 +134,7 @@
   }
 
   & .nav__item {
-    margin-bottom: 1.25em;
+    margin-bottom: 0;
     opacity: 0;
     transition: opacity .5s;
 
@@ -167,33 +165,48 @@
 }
 
 .nav--open {
-  &.nav__trigger {
+    .nav__trigger {
 
     &:hover {
       color: red;
     }
 
-    &.nav__trigger-line:nth-child(1) {
+    .nav__trigger-line:nth-child(1) {
       transform: translateY(15px)  rotate(225deg);
     }
-    &.nav__trigger-line:nth-child(2) {
+    .nav__trigger-line:nth-child(2) {
       opacity: 0;
       transform: rotateY(-180deg);
     }
-    &.nav__trigger-line:nth-child(3) {
+    .nav__trigger-line:nth-child(3) {
       transform: translateY(-15px)  rotate(-225deg);
     }
   }
 
-  &.nav__list {
-    position: relative;
-    z-index: 10;
-  }
+    .nav__list {
+      position: relative;
+      z-index: 10;
+    }
 
-  &.nav__item {
-    opacity: 1;
-    animation: showItems .25s forwards;
-  }
+    .nav__item {
+      animation: showItems .25s forwards;
+
+      &:nth-child(1) {
+        transition-delay: 0.4s;
+        animation-delay: 0.4s; }
+      &:nth-child(2) {
+        transition-delay: 0.55s;
+        animation-delay: 0.55s; }
+      &:nth-child(3) {
+        transition-delay: 0.7s;
+        animation-delay: 0.7s; }
+      &:nth-child(4) {
+        transition-delay: 0.85s;
+        animation-delay: 0.85s; }
+      &:nth-child(5) {
+        transition-delay: 1s;
+        animation-delay: 1s; }
+    }
 }
 
 @keyframes showItems {
@@ -209,6 +222,21 @@
     transform: scale(1);
   }
 }
+
+@keyframes curtian {
+  0% {
+    background: linear-gradient(rgba(0, 191, 165, 0.8), rgba(0, 191, 165, 0.8)) left, linear-gradient(rgba(0, 191, 165, 0.8), rgba(0, 191, 165, 0.8)) right;
+    background-size: 0 100%;
+    background-repeat: no-repeat; }
+  99% {
+    background: linear-gradient(rgba(0, 191, 165, 0.8), rgba(0, 191, 165, 0.8)) left, linear-gradient(rgba(0, 191, 165, 0.8), rgba(0, 191, 165, 0.8)) right;
+    background-size: 50% 100%;
+    background-repeat: no-repeat; }
+  100% {
+    background: rgba(0, 191, 165, 0.8);
+    background-repeat: no-repeat; }
+}
+
 
 
 .header__main {

@@ -404,12 +404,12 @@ function initMap() {
 // Header menu
 (function () {
   var nav = document.getElementById('nav');
-  var navHeader = document.getElementById('navHeader');
+  var navTrigger = document.getElementById('navTrigger');
   var navOpen = document.getElementById('navOpen');
 
   if (nav == null) return;
 
-  nav.addEventListener("click", openNav, false);
+  navTrigger.addEventListener("click", openNav, false);
 
   function openNav() {
     console.log("click");
