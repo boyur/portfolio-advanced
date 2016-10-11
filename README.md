@@ -15,4 +15,4 @@ link: http://new.boyur.net/
 4. run "gulp" command to start<br>
 
 **Status**<br>
-DZ1 - _ready_
+DZ3 - _ready_
