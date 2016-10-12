@@ -487,3 +487,46 @@ function initMap() {
   }
 
 })();
+
+// Blog menu
+(function () {
+
+  var blog = document.getElementById('blog');
+  var blogMenu = document.getElementById('blogMenu');
+  var blogContent = document.getElementById('blogContent');
+
+  var flagFix = true;
+
+  var coordinatesContent = getCoords(blogContent).top;
+  console.log(coordinatesContent);
+
+  window.addEventListener('scroll', function (e) {
+
+    if ( window.scrollY > coordinatesContent - 20 && flagFix ) {
+
+      blogMenu.classList.add('blog__menu--fix');
+      blogContent.style.marginLeft = '340px';
+      flagFix = false;
+
+      console.log('Готово');
+
+    } else if ( window.scrollY < coordinatesContent  - 20 && !flagFix ) {
+      blogMenu.classList.remove('blog__menu--fix');
+      blogContent.style.marginLeft = '0';
+      flagFix = true;
+    }
+
+    console.log(window.scrollY);
+  });
+
+  function getCoords(elem) {
+    var box = elem.getBoundingClientRect();
+
+    return {
+      top: box.top + pageYOffset,
+      left: box.left + pageXOffset
+    };
+
+  }
+
+})();

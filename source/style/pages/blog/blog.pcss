@@ -3,15 +3,24 @@
   min-height: 100vh;
 }
 
-.blog__aside {
-  width: 25%;
-  margin-right: 5%;
+.blog__menu {
+  width: 300px;
+  margin-right: 40px;
+  margin-top: 10px;
   float: left;
   text-align: right;
-  
+
   @media (--tablet) {
     display: none;
   }
+}
+
+.blog__menu--fix {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 300px;
 }
 
 .blog__content {
