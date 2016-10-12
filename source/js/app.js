@@ -496,6 +496,7 @@ function initMap() {
   var menuList = document.getElementById('menuList');
   var blogContent = document.getElementById('blogContent');
   var blogMenuTrigger = document.getElementById('blogMenuTrigger');
+  var nav = document.querySelectorAll('article[id^="article"]');
 
   var flagFix = true;
   var flagFixResize;
@@ -517,8 +518,24 @@ function initMap() {
   });
 
   window.addEventListener('scroll', function (e) {
-    if (!flagFixResize) return;
-    blogFix();
+
+    if (flagFixResize) {
+      blogFix();
+    }
+
+    if (window.scrollY > coordinatesContent - 20) {
+      for (var i = 0; i < nav.length; i++) {
+
+        console.log(nav[i]);
+        menuList.querySelector('a[href="#' + nav[i].id + '"]').parentNode
+          .className=((1 >= nav[i].getBoundingClientRect().top && nav[i].getBoundingClientRect()
+          .top >= 1-nav[i].offsetHeight) ? 'menu__item menu__item--active' : 'menu__item');
+      }
+    }
+
+
+
+
   });
 
   blogMenu.addEventListener('click', function () {
@@ -542,8 +559,6 @@ function initMap() {
       blogMenu.classList.add('blog__menu--fix');
       blogContent.style.marginLeft = '340px';
       flagFix = false;
-
-      console.log('Готово');
 
     } else if (window.scrollY < coordinatesContent - 20 && !flagFix) {
       blogMenu.classList.remove('blog__menu--fix');
