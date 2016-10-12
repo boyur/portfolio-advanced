@@ -2,6 +2,9 @@
   display: inline-block;
   max-width: 300px;
   list-style: none;
+  @media (--tablet) {
+    padding-top: 10px;
+  }
 }
 
 .menu__item {
@@ -13,6 +16,11 @@
   border-right-color: #00BFA5;
   color: #00BFA5;
   font-weight: bold;
+
+  @media (--tablet) {
+    border-right-color: transparent;
+    color: white;
+  }
 }
 
 .menu__link {

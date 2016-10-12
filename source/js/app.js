@@ -493,16 +493,51 @@ function initMap() {
 
   var blog = document.getElementById('blog');
   var blogMenu = document.getElementById('blogMenu');
+  var menuList = document.getElementById('menuList');
   var blogContent = document.getElementById('blogContent');
+  var blogMenuTrigger = document.getElementById('blogMenuTrigger');
 
   var flagFix = true;
+  var flagFixResize;
+  var flagMenu = false;
 
   var coordinatesContent = getCoords(blogContent).top;
-  console.log(coordinatesContent);
+  console.log(document.body.clientWidth);
+
+  flagFixResize = document.body.clientWidth >= 1200;
+
+  window.addEventListener('resize', function () {
+    flagFixResize = document.body.clientWidth >= 1200;
+
+    if (flagFixResize) {
+      menuOpen(false);
+    } else {
+      menuOpen(true);
+    }
+  });
 
   window.addEventListener('scroll', function (e) {
+    if (!flagFixResize) return;
+    blogFix();
+  });
 
-    if ( window.scrollY > coordinatesContent - 20 && flagFix ) {
+  blogMenu.addEventListener('click', function () {
+    if (flagFixResize) return;
+    menuOpen(flagMenu);
+  });
+
+  function menuOpen(value) {
+    if (value) {
+      blogMenu.style.marginLeft = '-300px';
+      flagMenu = false;
+    } else {
+      blogMenu.style.marginLeft = '0';
+      flagMenu = true;
+    }
+  }
+
+  function blogFix() {
+    if (window.scrollY > coordinatesContent - 20 && flagFix) {
 
       blogMenu.classList.add('blog__menu--fix');
       blogContent.style.marginLeft = '340px';
@@ -510,14 +545,13 @@ function initMap() {
 
       console.log('Готово');
 
-    } else if ( window.scrollY < coordinatesContent  - 20 && !flagFix ) {
+    } else if (window.scrollY < coordinatesContent - 20 && !flagFix) {
       blogMenu.classList.remove('blog__menu--fix');
       blogContent.style.marginLeft = '0';
       flagFix = true;
     }
+  }
 
-    console.log(window.scrollY);
-  });
 
   function getCoords(elem) {
     var box = elem.getBoundingClientRect();
