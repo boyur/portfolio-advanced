@@ -2,7 +2,7 @@
 The first graduation project LoftSchool Web Advanced
 
 Author: Боюр Артем Владимирович<br>
-link: http://new.boyur.net/
+link: http://boyur.net/
 
 **install Gulp 4.0:**<br>
 1. npm install gulpjs/gulp-cli<br>
@@ -13,6 +13,3 @@ link: http://new.boyur.net/
 2. cd path/to/<br>
 3. npm install<br>
 4. run "gulp" command to start<br>
-
-**Status**<br>
-DZ3 - _ready_
